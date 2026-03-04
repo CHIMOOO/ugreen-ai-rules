@@ -1,0 +1,92 @@
+---
+description: 当生成 git commit message、提交代码、或进行 git commit 操作时应用此规范
+globs:
+alwaysApply: false
+---
+
+# Git Commit Message 规范 v1.1.0
+
+当生成 git commit message 时，必须严格遵循以下规范。
+
+## 格式
+
+```
+<type>(<scope>): <description>
+
+[body]
+
+[footer]
+```
+
+> **scope 为必填项**，用于标识本次提交涉及的模块或主题。
+
+## type 定义
+
+| type | 说明 |
+|------|------|
+| `feat` | 新功能 |
+| `fix` | Bug 修复 |
+| `docs` | 文档变更 |
+| `style` | 代码格式（不影响逻辑），非 UI / CSS 样式 |
+| `refactor` | 重构（非新功能、非修复） |
+| `perf` | 性能优化 |
+| `test` | 测试相关 |
+| `build` | 影响构建系统或构建产物的变更 |
+| `ci` | CI/CD 配置或流水线调整 |
+| `chore` | 其他不影响发布语义的杂务 |
+| `revert` | 回滚提交 |
+| `release` | 版本发布（由发布脚本自动生成） |
+
+## scope 规范
+
+- **必填**，不允许省略
+- 值为本次提交涉及的模块或主题，如：`主题`、`启动`、`文件管理`、`Wi-Fi`、`OTA`
+- 一般使用中文，简洁明了
+
+## description 格式
+
+- 直接描述具体变更内容
+- 不超过 50 个字符，结尾不加句号
+- 使用中文描述
+
+## 核心约束
+
+1. **一次提交只做一件事**：不得将多个不相关的改动合并到同一个提交
+2. **type 准确性**：type 必须准确描述"对外变化"，不能用 chore 兜底
+3. **feat vs fix**：修复已发布行为 → fix；新增之前不存在的能力 → feat
+4. **refactor**：不改变功能、不修复 bug、不影响输出才是 refactor
+5. **scope 必填**：每次提交必须带 scope，不允许 `<type>: <description>` 的无 scope 格式
+
+## footer（仅在需要时添加）
+
+- 不兼容变动：以 `BREAKING CHANGE:` 开头，说明变动内容和迁移方法
+- 关闭 Issue：`关闭 EEZE-XXX`
+
+## 示例
+
+```
+✅ 正确
+feat(主题): 添加主题切换功能
+fix(启动): 修复 iOS 启动白屏问题
+docs(发布): 更新版本发布指南
+refactor(Wi-Fi): 重构连接状态管理逻辑
+perf(OTA): 优化固件下载速度
+
+❌ 错误
+feat: 添加主题切换功能        ← 缺少 scope
+fix: fix bug                  ← 缺少 scope + 英文描述
+chore: update                 ← 缺少 scope + 描述模糊
+feat: test                    ← 缺少 scope + 描述无意义
+```
+
+## 包含 body 的示例
+
+```
+feat(文件管理): 添加文件管理服务
+
+- 支持文件上传/下载
+- 支持进度回调
+- 支持取消操作
+
+关闭 EEZE-123
+```
