@@ -16,7 +16,7 @@
 2. 进入 `Cursor Settings → Rules, Commands`
 3. 点击 `Project Rules` 旁的 **+ Add Rule**
 4. 选择 **Remote Rule (Github)**
-5. 粘贴本仓库地址：`https://github.com/CHIMOOO/ugreen-ai-rules`
+5. 粘贴本仓库地址：`https://github.com/CHIMOOO/ugreen-ai-rules.git`
 6. 规则将自动同步到你的项目中
 
 > 导入后规则会自动与本仓库保持同步，无需手动更新。
