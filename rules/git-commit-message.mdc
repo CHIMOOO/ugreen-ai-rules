@@ -6,7 +6,7 @@ alwaysApply: false
 
 # Git Commit Message 规范 v1.1.0
 
-当生成 git commit message 时，必须严格遵循以下规范。
+当生成 git commit message 时，必须严格遵循以下规范。**所有 commit message 默认使用中文编写**（type 关键字除外）。
 
 ## 格式
 
@@ -41,13 +41,13 @@ alwaysApply: false
 
 - **必填**，不允许省略
 - 值为本次提交涉及的模块或主题，如：`主题`、`启动`、`文件管理`、`Wi-Fi`、`OTA`
-- 一般使用中文，简洁明了
+- **必须使用中文**，简洁明了
 
 ## description 格式
 
+- **必须使用中文**，禁止使用英文描述
 - 直接描述具体变更内容
 - 不超过 50 个字符，结尾不加句号
-- 使用中文描述
 
 ## 核心约束
 
@@ -56,6 +56,7 @@ alwaysApply: false
 3. **feat vs fix**：修复已发布行为 → fix；新增之前不存在的能力 → feat
 4. **refactor**：不改变功能、不修复 bug、不影响输出才是 refactor
 5. **scope 必填**：每次提交必须带 scope，不允许 `<type>: <description>` 的无 scope 格式
+6. **中文优先**：scope、description、body 均使用中文，type 关键字保持英文
 
 ## footer（仅在需要时添加）
 
@@ -74,7 +75,7 @@ perf(OTA): 优化固件下载速度
 
 ❌ 错误
 feat: 添加主题切换功能        ← 缺少 scope
-fix: fix bug                  ← 缺少 scope + 英文描述
+fix: fix bug                  ← 缺少 scope + 禁止英文描述
 chore: update                 ← 缺少 scope + 描述模糊
 feat: test                    ← 缺少 scope + 描述无意义
 ```
